@@ -25,4 +25,4 @@ class Post(models.Model):
         indexes = [models.Index(fields=["-publish"])]
 
     def __str__(self):
-        return f"{self.date}: {self.title}"
+        return f"{self.publish}: {self.title}"
