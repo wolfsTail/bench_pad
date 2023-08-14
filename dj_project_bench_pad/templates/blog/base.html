@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'css/dj_app_blog/blog.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div id="sidebar">
+        <h2>It's a training diary</h2>
+        <h>Nevermind!</h>
+    </div>
+    <!-- <footer>
+        <h5>by d.romanov|2023</h5>
+    </footer> -->
+</body>
+
+</html>
