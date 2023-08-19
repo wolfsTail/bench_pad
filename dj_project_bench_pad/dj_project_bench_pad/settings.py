@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'taggit',
     'dj_app_blog.apps.DjAppBlogConfig',
 ]
 
@@ -122,3 +123,13 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# конфигурация сервера электронной почты
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'lukaviy2la@gmail.com'
+EMAIL_HOST_PASSWORD = 'yxxqolntsxqqaqbp'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
