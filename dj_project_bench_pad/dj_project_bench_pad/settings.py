@@ -134,7 +134,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # конфигурация сервера электронной почты
 # данные удалены!!!
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'lukaviy2la@gmail.com'
-EMAIL_HOST_PASSWORD = 'yxxqolntsxqqaqbp'
+EMAIL_HOST_USER = 
+EMAIL_HOST_PASSWORD = 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
