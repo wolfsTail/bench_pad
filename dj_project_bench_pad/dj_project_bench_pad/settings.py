@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+SITE_ID = 1
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'taggit',
     'dj_app_blog.apps.DjAppBlogConfig',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
@@ -129,8 +133,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # конфигурация сервера электронной почты
 # данные удалены!!!
-EMAIL_HOST = 
-EMAIL_HOST_USER =
-EMAIL_HOST_PASSWORD = 
-EMAIL_PORT = 
-EMAIL_USE_TLS = 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'lukaviy2la@gmail.com'
+EMAIL_HOST_PASSWORD = 'yxxqolntsxqqaqbp'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
