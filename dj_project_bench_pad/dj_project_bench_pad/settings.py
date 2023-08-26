@@ -41,8 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'taggit',
     'dj_app_blog.apps.DjAppBlogConfig',
+    'dj_app_accounts.apps.DjAppAccountsConfig',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'django.contrib.postgres',
+    'PIL',
 ]
 
 MIDDLEWARE = [
@@ -81,8 +84,12 @@ WSGI_APPLICATION = 'dj_project_bench_pad.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'blog',
+        'PASSWORD': 'data',
+        'HOST': 'localhost',
+        'PORT': '5433',
     }
 }
 
@@ -134,7 +141,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # конфигурация сервера электронной почты
 # данные удалены!!!
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 
-EMAIL_HOST_PASSWORD = 
+EMAIL_HOST_USER = '**************'
+EMAIL_HOST_PASSWORD = '**************'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+LOGIN_REDIRECT_URL = '/'
+
+
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 28
+
+MEDIA_ROOT = BASE_DIR/'media'
+MEDIA_URL = '/media'

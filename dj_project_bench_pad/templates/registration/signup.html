@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% block title %} Регистрация {% endblock %}
+
+{% block content %}
+<h2> Регистрация </h2>
+
+{% if form.errors %}
+
+<div style="display: table; margin: 0 auto; text-align: left;">
+    {% for key, value in form.errors.items %}
+    <strong>{{ value }}</strong>
+    {% endfor %}
+</div>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    <p>Имя пользователя: {{ form.username }}</p>
+    <p>Email: {{ form.email }}</p>
+    <p>Имя: {{ form.first_name }}</p>
+    <p>Фамилия: {{ form.last_name }}</p>
+    <p>Пароль: {{ form.password1 }}
+        {{form.errors.password}}</p>
+    <p>Подтверждение пароля: {{ form.password2 }}</p>
+    <br />
+    <button type="submit">Зарегистрироваться</button>
+</form>
+<br />
+<a href="/accounts/login/"> Уже есть аккаунт? Авторизируйтесь! </a>
+{% endblock %}
