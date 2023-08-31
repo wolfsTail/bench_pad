@@ -1,11 +1,13 @@
 from django.contrib import admin
 from .models import Post, Comment
 from dj_app_accounts.models import Profile
+from django_summernote.admin import SummernoteModelAdmin
 
 
 # Register your models here.
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(SummernoteModelAdmin):
+    summernote_fields = ('body',)
     list_display = ['title', 'slug', 'author', 'publish', 'status',]
     list_filter = ['id', 'author__username',
                    'status', 'created', 'publish', 'author', ]
@@ -17,10 +19,13 @@ class PostAdmin(admin.ModelAdmin):
 
 
 @admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
+class CommentAdmin(SummernoteModelAdmin):
+    summernote_fields = ('body',)
     list_display = ["name", "email", "post", "created", "active"]
     list_filter = ["active", "created", "updated"]
     search_fields = ["name", "email", "body"]
 
 
-admin.site.register(Profile)
+@admin.register(Profile)
+class MyProfile(SummernoteModelAdmin):
+    summernote_fields = ('bio',)

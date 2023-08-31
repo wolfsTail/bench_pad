@@ -1,11 +1,16 @@
-{% extends 'blog/base.html' %}
-{% block title %} Login {% endblock %}
+{% extends "blog/base.html" %}
+{% block title %} Авторизация {% endblock %}
 {% block content %}
-<h2> Login </h2>
-<form method="post">
-    {{ form.as_p }}
+<h2> Логин </h2>
+<a href="{% url 'signup' %}" class="btn btn-link btn-lg active btn-block">Регистрация</a>
+<a href="{% url 'social:begin' 'github' %}" class="btn btn-link btn-lg active btn-block">GitHub</a>
+<a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-link btn-lg active btn-block">Google</a>
+<form method="post" class="form">
+    {{ form.username }}
+    {{ form.password }}
+    <div class="mb-1">Запомнить меня: {{ form.remember_me }}</div>
     {% csrf_token %}
-    <p><input type='submit' value="Login"></p>
+    <input type="submit" class="btn btn-primary btn-lg" value="Войти">
 </form>
-<p><a href="{% url 'password_reset' %}"> Сброс пароля </a> </p>
+<a href="{% url 'password_reset' %}">Сбросить пароль</a>
 {% endblock %}

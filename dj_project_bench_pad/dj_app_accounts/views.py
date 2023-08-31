@@ -4,8 +4,10 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib import messages
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.contrib.auth.decorators import login_required
+from django.contrib.messages.views import SuccessMessageMixin
+
 
 from .forms import SignUpForm, LoginForm, UpdateProfileForm, UpdateUserForm
 
@@ -54,6 +56,12 @@ class CustomLoginView(LoginView):
             self.request.session.modified = True
 
         return super(CustomLoginView, self).form_valid(form)
+
+
+class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+    template_name = 'registration/change_password.html'
+    success_message = "Ваш пароль упешно изменён!"
+    success_url = reverse_lazy('users-profile')
 
 
 @login_required

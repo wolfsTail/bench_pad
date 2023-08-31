@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.contrib.sitemaps.views import sitemap
 from dj_app_blog.sitemaps import PostSitemap
 from django.conf import settings
@@ -31,4 +31,6 @@ urlpatterns = [
          name='django.contrib.sitemaps.views.sitemap'),
     path("accounts/", include("dj_app_accounts.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
+    re_path(r'^oauth/', include('social_django.urls', namespace='social')),
+    path('summernote/', include('django_summernote.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
